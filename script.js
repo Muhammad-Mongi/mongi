@@ -86,3 +86,12 @@ portfolioItems.forEach((item) => {
     item.classList.remove("expand");
   });
 });
+
+// Adding Images to portfolio divs
+
+const itemsImages = document.querySelectorAll(".item-image");
+console.log(itemsImages);
+
+itemsImages.forEach((item) => {
+  item.style.backgroundImage = `url(${item.getAttribute("data-image")})`;
+});

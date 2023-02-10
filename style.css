@@ -18,7 +18,7 @@ FONT SIZE SYSTEM (px)
 }
 body {
   background: url("imgs/background copy.png") no-repeat center/cover;
-  height: 800vh;
+  height: 1000vh;
 }
 html {
   font-size: 62.5%;
@@ -695,8 +695,7 @@ ________ PORTFOLIO _________
   position: relative;
 }
 .portfolio-heading {
-  margin-top: 2.4rem;
-  margin-left: 4.8rem;
+  text-align: center;
   font-size: 20rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -706,40 +705,117 @@ ________ PORTFOLIO _________
   z-index: -10;
 }
 
+.portfolio .card {
+  width: 80%;
+  margin: auto;
+  margin-top: -10rem;
+  opacity: 0.85;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.4rem;
+  padding: 6.4rem 0;
+  background-image: url("./imgs/background.png");
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 @media (max-width: 1025px) {
   .portfolio-heading {
     font-size: 4.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    margin-left: 1.2rem;
+  }
+  .portfolio .card {
+    margin-top: -2rem;
+    width: 100%;
+    padding: 4.8rem 0;
   }
 }
-.portfolio .card {
-  width: 100%;
-  margin-top: -10rem;
-  opacity: 0.8;
-  display: flex;
-  flex-direction: column;
-  row-gap: 2.4rem;
-}
-
 .portfolio .card .row {
-  width: 100%;
+  width: 95%;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   column-gap: 2rem;
-  row-gap: 2rem;
+  row-gap: 2.4rem;
 }
+
 .portfolio .card .row .item {
-  flex-basis: 25%;
+  position: relative;
+  flex-basis: calc(100% / 3);
+  border-radius: 0.8rem;
   font-size: 4.8rem;
-  color: wheat;
+  height: 30rem;
   text-align: center;
-  background-color: #804a08;
+  background-color: wheat;
   transform-origin: left center;
   transition: flex-basis 0.3s linear;
+  overflow: hidden;
 }
 .portfolio .card .row .item.expand {
   flex-basis: 50%;
+}
+@media (max-width: 1023px) {
+  .portfolio .card .row .item {
+    height: 20rem;
+  }
+}
+@media (max-width: 481px) {
+  .portfolio .card .row {
+    width: 95%;
+    height: 100rem;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    column-gap: 2rem;
+    row-gap: 2.4rem;
+  }
+  .portfolio .card .row .item {
+    position: relative;
+    width: 100%;
+    border-radius: 0.8rem;
+    font-size: 4.8rem;
+    text-align: center;
+    background-color: wheat;
+    transform-origin: left center;
+    transition: flex-basis 0.3s linear;
+    overflow: hidden;
+  }
+  .portfolio .card .row .item.expand {
+    flex-basis: 50%;
+  }
+}
+.item-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.8rem 0.8rem 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.item-overlay {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 2.4rem;
+  background-color: rgba(128, 74, 8, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: all 0.3s linear;
+}
+.portfolio .card .row .item.expand .item-overlay {
+  opacity: 1;
+}
+.item-title {
+  color: white;
 }
