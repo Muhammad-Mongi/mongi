@@ -76,11 +76,8 @@ ________ GENERAL COMPONENTS _________
 @media (min-width: 1025px) {
   .container {
     max-width: 100%;
-    padding: 3.2rem 10rem 12.8rem 10rem;
+    padding: 9.6rem 10rem;
   }
-}
-.main-background {
-  background: url("imgs/background.png") no-repeat center/cover;
 }
 .active-page {
   color: var(--accent) !important;
@@ -169,12 +166,14 @@ ________ GENERAL COMPONENTS _________
 }
 .btn-filled {
   background: var(--button-background);
+  border: 2px solid var(--accent);
   color: var(--primary-dark);
   color: var(--grey-light);
   color: var(--primary-dark);
 }
 
 .btn-filled:hover {
+  border: 2px solid transparent;
   box-shadow: 0 0 1.2rem var(--accent);
   background: transparent;
   color: var(--accent);
@@ -206,6 +205,7 @@ ________ HOME _________
 .home {
   position: relative;
   max-width: 100%;
+  background: url("./imgs/bg/home.jpg") center center/cover no-repeat fixed;
 }
 
 header {
@@ -230,7 +230,7 @@ header.show {
   left: 0;
   z-index: 100;
   background-color: var(--primary-dark);
-  box-shadow: 0 0 1.6rem var(--primary);
+  /* box-shadow: 0 0 1rem 0.1rem var(--accent-light); */
   animation: show-header 0.8s;
 }
 
@@ -316,7 +316,7 @@ ________Mobile Nav_________
     z-index: 50;
   }
   .mobile-nav.active {
-    width: 40%;
+    width: 60%;
     height: 30rem;
     column-gap: 2.4rem;
     padding: 1.2rem 2.4rem;
@@ -410,7 +410,12 @@ ________HERO_________
   align-items: center;
   justify-content: space-between;
 }
-
+@media (min-width: 1025px) {
+  .hero .container {
+    max-width: 100%;
+    padding: 3.2rem 10rem 12.8rem 10rem;
+  }
+}
 .hero .mobile-btn__added {
   display: none;
 }
@@ -571,6 +576,7 @@ ________SKILLS_________
 **********************************
 **********************************/
 .skills {
+  background: url("./imgs/bg/skills.JPG") center/cover no-repeat;
   position: relative;
   text-align: center;
 }
@@ -580,7 +586,12 @@ ________SKILLS_________
   justify-content: space-between;
   column-gap: 12.8rem;
 }
-
+@media (min-width: 1025px) {
+  .skills .container {
+    max-width: 100%;
+    padding: 3.2rem 10rem 12.8rem 10rem;
+  }
+}
 .heading-stroked {
   white-space: nowrap;
   font-size: 12.8rem;
@@ -685,7 +696,9 @@ ________ PORTFOLIO _________
 
 **********************************
 **********************************/
-
+.portfolio {
+  background: url("./imgs/bg/port.jpg") center center/cover no-repeat fixed;
+}
 @media (min-width: 1025px) {
   .portfolio .container {
     padding: 3.2rem 0rem 12.8rem 0rem;
@@ -696,25 +709,25 @@ ________ PORTFOLIO _________
 }
 .portfolio-heading {
   text-align: center;
-  font-size: 20rem;
+  font-size: 18rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--primary);
   text-shadow: 0 0 10px white, 0 0 20px white, 0 0 80px white,
     0 0 120px var(--primary);
+  opacity: 0.2;
   z-index: -10;
 }
 
 .portfolio .card {
   width: 80%;
   margin: auto;
-  margin-top: -10rem;
-  opacity: 0.85;
   display: flex;
   flex-direction: column;
   row-gap: 2.4rem;
   padding: 6.4rem 0;
-  background-image: url("./imgs/background.png");
+  border-radius: 0.8rem;
+  box-shadow: none;
+  background-color: transparent;
   background-position: right bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -791,7 +804,6 @@ ________ PORTFOLIO _________
 .item-image {
   width: 100%;
   height: 100%;
-  border-radius: 0.8rem 0.8rem 0 0;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -813,6 +825,7 @@ ________ PORTFOLIO _________
   background-color: rgba(0, 0, 0, 0.9);
   transition: all 0.3s linear;
 }
+
 .portfolio .card .row .item.expand .item-overlay {
   opacity: 1;
 }
