@@ -321,8 +321,7 @@ ________Mobile Nav_________
   }
   .mobile-nav.active {
     width: 60%;
-    height: 30rem;
-    column-gap: 2.4rem;
+    height: 34rem;
     padding: 1.2rem 2.4rem;
   }
   .mobile-nav .mobile-ul {
@@ -417,7 +416,7 @@ ________HERO_________
 @media (min-width: 1025px) {
   .hero .container {
     max-width: 100%;
-    padding: 3.2rem 10rem 12.8rem 10rem;
+    padding: 3.2rem 10rem 9.6rem 10rem;
   }
 }
 .hero .mobile-btn__added {
@@ -460,6 +459,7 @@ ________HERO_________
     letter-spacing: 0.5rem;
   }
 }
+
 /* *******************************
 **********************************
 ________ABOUT_________
@@ -599,7 +599,7 @@ ________SKILLS_________
 .heading-stroked {
   white-space: nowrap;
   font-size: 12.8rem;
-  -webkit-text-stroke: 2px rgba(77, 50, 88, 0.2);
+  -webkit-text-stroke: 2px rgba(77, 50, 88, 0.6);
   color: transparent;
   transform-origin: left;
   animation: fillText 10s infinite;
@@ -628,14 +628,14 @@ ________SKILLS_________
 }
 @keyframes fillText {
   0% {
-    -webkit-text-stroke: 2px rgba(77, 50, 88, 0.2);
+    -webkit-text-stroke: 2px rgba(77, 50, 88, 0.6);
   }
 
   50% {
-    -webkit-text-stroke: 2px rgba(77, 50, 88, 0.6);
+    -webkit-text-stroke: 2px rgba(77, 50, 88, 1);
   }
   100% {
-    -webkit-text-stroke: 2px rgba(77, 50, 88, 0.2);
+    -webkit-text-stroke: 2px rgba(77, 50, 88, 0.6);
   }
 }
 
@@ -714,13 +714,15 @@ ________ PORTFOLIO _________
 }
 .portfolio-heading {
   text-align: center;
-  font-size: 18rem;
+  font-size: 9.6rem;
   font-weight: 700;
   text-transform: uppercase;
-  text-shadow: 0 0 10px white, 0 0 20px white, 0 0 80px white,
-    0 0 120px var(--primary);
-  opacity: 0.2;
-  z-index: -10;
+  color: var(--grey-light);
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: auto;
 }
 
 .portfolio .card {
@@ -750,7 +752,7 @@ ________ PORTFOLIO _________
   }
 }
 .portfolio .card .row {
-  width: 95%;
+  width: 100%;
   margin: auto;
   display: flex;
   align-items: center;
@@ -1050,6 +1052,7 @@ ________ CONTACT  _________
   justify-content: space-between;
   padding: 0;
   padding-top: 6.4rem;
+  position: relative;
 }
 @media (max-width: 767px) {
   .form-container.card {
@@ -1058,6 +1061,44 @@ ________ CONTACT  _________
     padding-top: 2.4rem;
     align-items: flex-start;
     row-gap: 2.4rem;
+  }
+}
+.error-message__container {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  opacity: 0;
+  background-color: var(--grey-light);
+  width: 22rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  padding-left: 0.8rem;
+  border-left: 0.5rem solid rgb(190, 0, 0);
+}
+.error-message__text {
+  font-size: 1.4rem;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.error-message__container.active {
+  animation: show-error 4s linear;
+}
+@keyframes show-error {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
 .form-left__container {
@@ -1161,11 +1202,12 @@ ________ CONTACT  _________
 }
 .input-control.message textarea {
   resize: none;
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 80%;
   background-color: transparent;
+  background-color: #26112c;
   border: none;
-  padding: 0;
+  padding: 1.2rem;
   color: var(--grey-light);
   font-size: 1.6rem;
   text-align: left;
@@ -1201,6 +1243,104 @@ ________ CONTACT  _________
   }
 }
 
+/* modal MESSAGE */
+.success-modal__container {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 500;
+}
+
+.success-modal__container.active {
+  display: block;
+}
+.success-modal {
+  width: 55rem;
+  height: 25rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  background-color: var(--grey-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  row-gap: 1.2rem;
+  border-radius: 0.4rem;
+}
+@media (max-width: 767px) {
+  .success-modal {
+    width: 95%;
+  }
+}
+.success-modal.active {
+  animation: modal-show 1s;
+}
+@keyframes modal-show {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
+}
+.success-modal__icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #82ce34;
+  width: 9.6rem;
+  height: 9.6rem;
+  border-radius: 50%;
+}
+.success-modal__icon i {
+  color: white;
+  font-size: 4.4rem;
+}
+
+.success-modal__message {
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--grey-dark);
+  margin-bottom: 1.2rem;
+  margin-top: 2.4rem;
+}
+.success-modal__paragraph {
+  font-size: 1.4rem;
+  color: var(--grey-dark);
+  margin-bottom: 2.4rem;
+  font-weight: 600;
+}
+#close-modal {
+  display: block;
+  width: 80%;
+  border-radius: 0.4rem;
+  padding: 1.2rem 0;
+  border: none;
+  background-color: #82ce34;
+  color: white;
+  font-size: 2rem;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+#close-modal:hover {
+  background-color: #71b42e;
+}
 /* *******************************
 **********************************
 ________ FOOTER  _________
@@ -1328,4 +1468,50 @@ ________ FOOTER  _________
 .copywrite i,
 .copywrite span {
   color: var(--accent);
+}
+
+/* 
+//////////////////////
+ */
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.popup-message {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  font-size: 18px;
+}
+
+.popup.fade-in {
+  display: block;
+}
+
+.popup-message.fade-in {
+  display: block;
+  animation: fade-in 0.5s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

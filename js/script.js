@@ -90,8 +90,59 @@ portfolioItems.forEach((item) => {
 // Adding Images to portfolio divs
 
 const itemsImages = document.querySelectorAll(".item-image");
-console.log(itemsImages);
 
 itemsImages.forEach((item) => {
   item.style.backgroundImage = `url(${item.getAttribute("data-image")})`;
+});
+
+// /////////////////////
+// Handling form submitting
+
+$("#contact_form").submit((e) => {
+  e.preventDefault();
+
+  let formData = {
+    name: $("input[name=name]").val(),
+    email: $("input[name=email]").val(),
+    message: $("textarea[name=message]").val(),
+  };
+
+  $.ajax({
+    type: "POST",
+    url: "send_message.php",
+    data: formData,
+    dataType: "json",
+    success: (response) => {
+      if (response.success) {
+        document
+          .querySelector(".success-modal__container")
+          .classList.add("active");
+
+        document.querySelector(".success-modal").classList.add("active");
+
+        document.querySelector('input[name="name"]').value = "";
+        document.querySelector('input[name="email"]').value = "";
+        document.querySelector('textarea[name="message"]').value = "";
+      } else {
+        alert("Something went wrong. Please Try again later");
+      }
+    },
+    error: (error) => {
+      document.querySelector(".error-message__text").textContent =
+        error.responseText;
+      const messageContainer = document.querySelector(
+        ".error-message__container"
+      );
+      messageContainer.classList.add("active");
+      messageContainer.addEventListener("animationend", () => {
+        messageContainer.classList.remove("active");
+      });
+    },
+  });
+});
+
+document.querySelector("#close-modal").addEventListener("click", () => {
+  document
+    .querySelector(".success-modal__container")
+    .classList.remove("active");
 });
