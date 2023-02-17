@@ -109,7 +109,7 @@ $("#contact_form").submit((e) => {
 
   $.ajax({
     type: "POST",
-    url: "send_message.php",
+    url: "https://mongi2.000webhostapp.com/send_message.php",
     data: formData,
     dataType: "json",
     success: (response) => {
@@ -128,8 +128,10 @@ $("#contact_form").submit((e) => {
       }
     },
     error: (error) => {
+      console.log(error);
       document.querySelector(".error-message__text").textContent =
         error.responseText;
+      console.log(error.responseText);
       const messageContainer = document.querySelector(
         ".error-message__container"
       );
