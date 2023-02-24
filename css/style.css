@@ -79,6 +79,7 @@ ________ GENERAL COMPONENTS _________
     padding: 9.6rem 10rem;
   }
 }
+
 .active-page {
   color: var(--accent) !important;
 }
@@ -144,8 +145,11 @@ ________ GENERAL COMPONENTS _________
 .description a {
   color: var(--accent);
   text-decoration: none;
+  transition: all 0.1s linear;
 }
-
+.description a:hover {
+  color: #e9870f;
+}
 .mt-m {
   margin-top: 3.2rem;
 }
@@ -249,6 +253,7 @@ header.show {
 .logo img {
   max-width: 10rem;
 }
+
 /* NAV */
 @media (max-width: 1023px) {
   nav,
@@ -518,9 +523,9 @@ ________ABOUT_________
   font-size: 1.6rem;
   line-height: 1.7;
   width: fit-content;
-  transition: padding-left 0.2s linear;
 }
 .description a {
+  transition: color 0.1s linear;
   color: var(--accent);
   text-decoration: none;
 }
@@ -529,20 +534,8 @@ ________ABOUT_________
   cursor: pointer;
   overflow: hidden;
 }
-.about-text .description:last-child:hover {
-  padding-left: 2.8rem;
-}
-.about-text .description .smiley {
-  position: absolute;
-  left: -2rem;
-  opacity: 0;
-  transition: left 0.2s linear, opacity 0.2s linear, transform 0.2s linear;
-  transform: rotate(-120deg);
-}
-.about-text .description:last-child:hover .smiley {
-  left: 0;
-  opacity: 1;
-  transform: rotate(0deg);
+.about-text .description:hover a {
+  color: #df800d;
 }
 
 @media (max-width: 1023px) {
@@ -714,13 +707,11 @@ ________ PORTFOLIO _________
 }
 .portfolio-heading {
   text-align: center;
+  text-transform: uppercase;
   font-size: 9.6rem;
   font-weight: 700;
-  text-transform: uppercase;
   color: var(--grey-light);
   opacity: 0.8;
-  display: flex;
-  justify-content: center;
   width: 80%;
   margin: auto;
 }
@@ -890,12 +881,12 @@ ________ BLOGS  _________
 
 .main-blog__container {
   width: 90%;
+  height: 50rem;
   margin: auto;
   margin-top: -14rem;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  height: 40rem;
   background: url("../imgs/blog_main.jpg") center/cover no-repeat;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
@@ -953,7 +944,7 @@ ________ BLOGS  _________
 }
 .secondary-blog:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  transform: scale(1.05) translateY(-0.8rem);
+  transform: scale(1.01) translateY(-0.2rem);
 }
 .secondary-blog__image {
   width: 100%;
@@ -980,6 +971,7 @@ ________ BLOGS  _________
 .secondary-blog__link {
   border-radius: 0;
   padding: 0;
+  color: var(--primary);
   font-size: 1.4rem;
   font-weight: bold;
   transition: all 0.2s linear;
@@ -1446,9 +1438,12 @@ ________ FOOTER  _________
 .footer-social__item {
   display: flex;
 }
+.footer-social__item a {
+  text-decoration: none;
+}
 .footer-social__item i {
   margin: 0 1.2rem;
-  font-size: 1.6rem;
+  font-size: 2rem;
   border-radius: 50%;
   width: 4rem;
   height: 4rem;
@@ -1457,6 +1452,15 @@ ________ FOOTER  _________
   justify-content: center;
   background-color: var(--grey-light);
   color: #000;
+  transition: all 0.2s linear;
+}
+.footer-social__item a:first-child:hover i {
+  background-color: #0077b5;
+  color: white;
+}
+.footer-social__item a:last-child:hover i {
+  background-color: black;
+  color: white;
 }
 @media (max-width: 767px) {
   .copywrite {
