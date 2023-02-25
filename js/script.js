@@ -148,3 +148,13 @@ document.querySelector("#close-modal").addEventListener("click", () => {
     .querySelector(".success-modal__container")
     .classList.remove("active");
 });
+
+window.addEventListener("load", function () {
+  // Set a timeout function to remove the preloader after 10 seconds
+  setTimeout(function () {
+    document.querySelector(".pre-loader").classList.add("fade-out");
+  }, 5000);
+  setTimeout(function () {
+    document.querySelector(".pre-loader").remove();
+  }, 5500);
+});
